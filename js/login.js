@@ -25,7 +25,7 @@ const analytics = getAnalytics(app);
 const provider = new GoogleAuthProvider();
 const auth = getAuth();
 
-document.getElementById('google-btn');addEventListener('click', () => {
+document.getElementById('google-btn').addEventListener('click', () => {
   signInWithPopup(auth, provider).then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
@@ -33,7 +33,7 @@ document.getElementById('google-btn');addEventListener('click', () => {
 
       console.log(user);
 
-      
+
     }).catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;
