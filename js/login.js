@@ -39,3 +39,18 @@ document.getElementById('google-btn').addEventListener('click', () => {
       console.error(`Error: ${errorCode}, Message: ${errorMessage}, Email: ${email}`);
     });
 });
+
+document.getElementById('login-btn').addEventListener('click', () => {
+  const email = document.getElementById('input-email').value;
+  const password = document.getElementById('input-pass').value;
+
+  signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
+    const user = userCredential.user;
+    console.log(user);
+
+  }).catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.error(`Error: ${errorCode}, Message: ${errorMessage}`);
+  });
+});
