@@ -27,7 +27,7 @@ onAuthStateChanged(auth, (user) => {
     console.log(user);
 
     Toastify({
-        text: "Logged as " + user.displayName,
+        text: "Logged in as " + user.displayName,
         duration: 3000,
         gravity: "top", // `top` or `bottom`
         position: "center", // `left`, `center` or `right`
@@ -40,7 +40,13 @@ onAuthStateChanged(auth, (user) => {
 
       let profPicture = document.getElementById("profile-picture");
 
-      profPicture.src = user.photoURL;
+      if (user.photoURL === null) {
+        profPicture.src = "https://i0.wp.com/digitalhealthskills.com/wp-content/uploads/2022/11/3da39-no-user-image-icon-27.png?fit=500%2C500&ssl=1";
+      }
+      else {
+        profPicture.src = user.photoURL;
+      }
+      
 
   } else {
 

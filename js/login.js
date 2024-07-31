@@ -30,7 +30,7 @@ document.getElementById('google-btn').addEventListener('click', () => {
 
       console.log(user);
 
-      window.location.href = "menu.html"
+      window.location.href = "menu.html";
 
     }).catch((error) => {
 
@@ -53,7 +53,7 @@ document.getElementById('login-btn').addEventListener('click', () => {
 
     console.log(user);
 
-    alert('Login válido');
+    window.location.href = "menu.html";
 
   }).catch((error) => {
 
