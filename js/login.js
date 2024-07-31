@@ -30,10 +30,10 @@ document.getElementById('google-btn').addEventListener('click', () => {
 
       console.log(user);
 
-      alert('Login válido');
+      window.location.href = "menu.html"
 
     }).catch((error) => {
-      // Handle Errors here.
+
       alert('Algo deu errado');
 
       const errorCode = error.code;
@@ -50,11 +50,15 @@ document.getElementById('login-btn').addEventListener('click', () => {
 
   signInWithEmailAndPassword(auth, email, password).then((result) => {
     const user = result.user;
+
     console.log(user);
+
     alert('Login válido');
 
   }).catch((error) => {
+
     alert('Login inválido');
+
     const errorCode = error.code;
     const errorMessage = error.message;
     console.error(`Error: ${errorCode}, Message: ${errorMessage}`);

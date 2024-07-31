@@ -1,0 +1,14 @@
+body {
+    height: 100vh;
+}
+
+.user {
+    height: fit-content;
+    width: fit-content;
+}
+
+#profile-picture {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
