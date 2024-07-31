@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+import { GoogleAuthProvider, getAuth, signInWithPopup, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-analytics.js";
 
 // Your web app's Firebase configuration
@@ -30,8 +30,12 @@ document.getElementById('google-btn').addEventListener('click', () => {
 
       console.log(user);
 
+      alert('Login válido');
+
     }).catch((error) => {
       // Handle Errors here.
+      alert('Algo deu errado');
+
       const errorCode = error.code;
       const errorMessage = error.message;
       const email = error.customData.email;
@@ -44,11 +48,13 @@ document.getElementById('login-btn').addEventListener('click', () => {
   const email = document.getElementById('input-email').value;
   const password = document.getElementById('input-pass').value;
 
-  signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
-    const user = userCredential.user;
+  signInWithEmailAndPassword(auth, email, password).then((result) => {
+    const user = result.user;
     console.log(user);
+    alert('Login válido');
 
   }).catch((error) => {
+    alert('Login inválido');
     const errorCode = error.code;
     const errorMessage = error.message;
     console.error(`Error: ${errorCode}, Message: ${errorMessage}`);
