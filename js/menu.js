@@ -41,7 +41,7 @@ onAuthStateChanged(auth, (user) => {
       let profPicture = document.getElementById("profile-picture");
 
       if (user.photoURL === null) {
-        profPicture.src = "../assets/img/no-profile-pic.jpg";
+        profPicture.src = "assets/img/no-profile-pic.jpg";
       }
       else {
         profPicture.src = user.photoURL;
