@@ -1,8 +1,11 @@
 body {
-    height: 100vh;
+    height: fit-content;
 }
 
 .user {
+    position: absolute;
+    top: 10px;
+    left: 10px;
     height: fit-content;
     width: fit-content;
 }
@@ -11,4 +14,10 @@ body {
     height: 50px;
     width: 50px;
     border-radius: 50%;
+    cursor: pointer;
+    transition: ease 0.3s;
+}
+
+#profile-picture:hover {
+    border: 1px solid brown;
 }

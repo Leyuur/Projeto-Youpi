@@ -1,0 +1,122 @@
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 600px;
+    gap: 40px;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.059);
+}
+
+.title-container {
+    width: 80%;
+}
+
+.or-container {
+    display: flex;
+    width: 85%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-login p {
+    background-color: white;
+    z-index: 2;
+    position: absolute;
+    padding: 15px;
+}
+
+.line {
+    display: block;
+    background-color: rgb(241, 241, 241);
+    height: 1px;
+    width: 100%;
+}
+
+.form-inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+    width: 80%;
+}
+
+.form-inputs input {
+    border: none;
+    background-color: rgb(241, 241, 241);
+    padding: 15px 7.5%;
+    width: 85%;
+    border-radius: 15px;
+    font-size: 15px;
+    transition: ease 0.5s;
+}
+
+.form-inputs input:focus {
+    outline: none;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.098);
+}
+
+a {
+    text-decoration: none;
+    color: brown;
+}
+
+a:hover {
+    text-decoration: underline solid brown;
+}
+
+.sm-login-btn {
+    display: flex;
+    border: none;
+    padding: 9px 40px;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+    background-color: white;
+    border: 1px solid rgba(164, 164, 164, 0.292);
+    cursor: pointer;
+    font-weight: 600;
+    transition: ease 0.5s;
+}
+.sm-login-btn img {
+    width: 30px;
+}
+
+.sm-login-btn:hover {
+    border: 1px solid brown;
+}
+
+#login-btn {
+    background-color: brown;
+    border: none;
+    padding: 9px 40px;
+    border-radius: 15px;
+    width: 80%;
+    height: 40px;
+    color: white;
+    cursor: pointer;
+    transition: ease 0.5s;
+}
+
+#login-btn:hover {
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.098);
+    background-color: rgb(223, 84, 84);
+}
+

@@ -30,6 +30,8 @@ document.getElementById('google-btn').addEventListener('click', () => {
 
       console.log(user);
 
+      localStorage.setItem('logged', 'true');
+
       window.location.href = "menu.html";
 
     }).catch((error) => {
@@ -52,6 +54,8 @@ document.getElementById('login-btn').addEventListener('click', () => {
     const user = result.user;
 
     console.log(user);
+
+    localStorage.setItem('logged', 'true');
 
     window.location.href = "menu.html";
 

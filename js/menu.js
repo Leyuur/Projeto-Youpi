@@ -25,28 +25,31 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
 
     console.log(user);
+    if (localStorage.getItem('logged')) {
+        Toastify({
+            text: "Logged in as " + user.email,
+            duration: 2000,
+            gravity: "top", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            close: true,
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "green",
+            },
+            onClick: function(){} // Callback after click
+          }).showToast();
+          
+          localStorage.removeItem('logged');
+          
+    }
 
-    Toastify({
-        text: "Logged in as " + user.displayName,
-        duration: 3000,
-        gravity: "top", // `top` or `bottom`
-        position: "center", // `left`, `center` or `right`
-        stopOnFocus: true, // Prevents dismissing of toast on hover
-        style: {
-          background: "green",
-        },
-        onClick: function(){} // Callback after click
-      }).showToast();
+    let profPicture = document.getElementById("profile-picture");
 
-      let profPicture = document.getElementById("profile-picture");
-
-      if (user.photoURL === null) {
-        profPicture.src = "assets/img/no-profile-pic.jpg";
-      }
-      else {
-        profPicture.src = user.photoURL;
-      }
-      
+    profPicture.onload = () => {
+        if (user.photoURL != null) {
+            profPicture.src = user.photoURL;
+        }
+    }  
 
   } else {
 
@@ -54,7 +57,7 @@ onAuthStateChanged(auth, (user) => {
         text: "No user is signed in",
         duration: 3000,
         gravity: "top", // `top` or `bottom`
-        position: "center", // `left`, `center` or `right`
+        position: "right", // `left`, `center` or `right`
         stopOnFocus: true, // Prevents dismissing of toast on hover
         style: {
           background: "red",
@@ -62,6 +65,6 @@ onAuthStateChanged(auth, (user) => {
         onClick: function(){} // Callback after click
       }).showToast();
 
-    window.location.href = "login.html"; // Redirect to login page if no user is signed in
+    window.location.href = "index.html"; // Redirect to login page if no user is signed in
   }
 });
