@@ -45,13 +45,9 @@ onAuthStateChanged(auth, (user) => {
 
     let profPicture = document.getElementById("profile-picture");
 
-    profPicture.onload = () => {
         if (user.photoURL != null) {
             profPicture.src = user.photoURL;
-        }
-    }  
-
-  } else {
+        } 
 
     Toastify({
         text: "No user is signed in",
