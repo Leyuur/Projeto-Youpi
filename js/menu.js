@@ -21,48 +21,49 @@ const analytics = getAnalytics(app);
 
 const auth = getAuth();
 
-onAuthStateChanged(auth, (user) => {
-  if (user) {
+document.addEventListener('DOMContentLoaded', () => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
 
-    console.log(user);
-    if (localStorage.getItem('logged')) {
-        Toastify({
-            text: "Logged in as " + user.email,
-            duration: 2000,
-            gravity: "top", // `top` or `bottom`
-            position: "right", // `left`, `center` or `right`
-            close: true,
-            stopOnFocus: true, // Prevents dismissing of toast on hover
-            style: {
-              background: "green",
-            },
-            onClick: function(){} // Callback after click
-          }).showToast();
-          
-          localStorage.removeItem('logged');
-          
+      console.log(user);
+      if (localStorage.getItem('logged')) {
+          Toastify({
+              text: "Logged in as " + user.email,
+              duration: 2000,
+              gravity: "top", // `top` or `bottom`
+              position: "right", // `left`, `center` or `right`
+              close: true,
+              stopOnFocus: true, // Prevents dismissing of toast on hover
+              style: {
+                background: "green",
+              },
+              onClick: function(){} // Callback after click
+            }).showToast();
+            
+            localStorage.removeItem('logged');
+      }
+
+      let profPicture = document.getElementById("profile-picture");
+
+      if (user.photoURL != null) {
+          profPicture.src = user.photoURL;
+      }
+
+    } else {
+
+      Toastify({
+          text: "No user is signed in",
+          duration: 3000,
+          gravity: "top", // `top` or `bottom`
+          position: "right", // `left`, `center` or `right`
+          stopOnFocus: true, // Prevents dismissing of toast on hover
+          style: {
+            background: "red",
+          },
+          onClick: function(){} // Callback after click
+        }).showToast();
+
+      window.location.href = "index.html"; // Redirect to login page if no user is signed in
     }
-
-    let profPicture = document.getElementById("profile-picture");
-    
-        if (user.photoURL != null) {
-            profPicture.src = user.photoURL;
-        }
-
-  } else {
-
-    Toastify({
-        text: "No user is signed in",
-        duration: 3000,
-        gravity: "top", // `top` or `bottom`
-        position: "right", // `left`, `center` or `right`
-        stopOnFocus: true, // Prevents dismissing of toast on hover
-        style: {
-          background: "red",
-        },
-        onClick: function(){} // Callback after click
-      }).showToast();
-
-    window.location.href = "index.html"; // Redirect to login page if no user is signed in
-  }
+  });
 });
