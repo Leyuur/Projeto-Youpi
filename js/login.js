@@ -36,7 +36,18 @@ document.getElementById('google-btn').addEventListener('click', () => {
 
     }).catch((error) => {
 
-      alert('Algo deu errado');
+      Toastify({
+        text: "Something went wrong. Try again",
+        avatar: "assets/icon/error-circle.svg",
+        duration: 3000,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "red",
+        },
+        onClick: function(){} // Callback after click
+      }).showToast();
 
       const errorCode = error.code;
       const errorMessage = error.message;
