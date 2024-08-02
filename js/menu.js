@@ -30,12 +30,18 @@ document.addEventListener('DOMContentLoaded', () => {
           Toastify({
               text: "Logged in as " + user.email,
               duration: 2000,
+              className: "success",
               gravity: "top", // `top` or `bottom`
               position: "right", // `left`, `center` or `right`
               close: true,
+              avatar: "assets/icon/check-circle.svg",
               stopOnFocus: true, // Prevents dismissing of toast on hover
               style: {
                 background: "green",
+              },
+              offset: {
+                x: 50, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+                y: 10 // vertical axis - can be a number or a string indicating unity. eg: '2em'
               },
               onClick: function(){} // Callback after click
             }).showToast();

@@ -1,4 +1,3 @@
-
 body {
     height: 100vh;
     display: flex;
@@ -58,11 +57,30 @@ body {
 .form-inputs input {
     border: none;
     background-color: rgb(241, 241, 241);
-    padding: 15px 7.5%;
-    width: 85%;
+    padding: 15px 5%;
+    width: 90%;
     border-radius: 15px;
     font-size: 15px;
     transition: ease 0.5s;
+}
+
+.password-container {
+    position: relative;
+    width: 90%;
+}
+
+.password-container input {
+    width: 100%;
+}
+
+.password-container .material-symbols-outlined {
+    position: absolute;
+    top: 50%;
+    right: -15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: ease 1s;
+    color: rgb(149, 149, 149);
 }
 
 .form-inputs input:focus {
@@ -115,8 +133,24 @@ a:hover {
     transition: ease 0.5s;
 }
 
+#login-btn:disabled {
+    background-color: rgb(222, 222, 222);
+    border: none;
+    padding: 9px 40px;
+    border-radius: 15px;
+    width: 80%;
+    height: 40px;
+    color: white;
+    cursor: auto;
+    transition: ease 0.5s;
+}
+
+#login-btn:disabled:hover {
+    box-shadow: none;
+    background-color: rgb(222, 222, 222);
+}
+
 #login-btn:hover {
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.098);
     background-color: rgb(223, 84, 84);
 }
-

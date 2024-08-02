@@ -47,10 +47,10 @@ document.getElementById('google-btn').addEventListener('click', () => {
 });
 
 document.getElementById('login-btn').addEventListener('click', () => {
-  const email = document.getElementById('input-email').value;
-  const password = document.getElementById('input-pass').value;
+  const email = document.getElementById('input-email');
+  const password = document.getElementById('input-pass');
 
-  signInWithEmailAndPassword(auth, email, password).then((result) => {
+  signInWithEmailAndPassword(auth, email.value, password.value).then((result) => {
     const user = result.user;
 
     console.log(user);
@@ -61,10 +61,60 @@ document.getElementById('login-btn').addEventListener('click', () => {
 
   }).catch((error) => {
 
-    alert('Login inválido');
+    Toastify({
+      text: "Invalid email or password",
+      avatar: "assets/icon/error-circle.svg",
+      duration: 3000,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: "red",
+      },
+      onClick: function(){} // Callback after click
+    }).showToast();
+
+    email.focus();
+
+    email.style.border = '1px solid red';
+    password.style.border = '1px solid red';
 
     const errorCode = error.code;
     const errorMessage = error.message;
     console.error(`Error: ${errorCode}, Message: ${errorMessage}`);
   });
 });
+
+let inputs = document.querySelectorAll(".inputs");
+let loginBtn = document.getElementById('login-btn');
+let emailInput = document.getElementById('input-email');
+let passInput = document.getElementById('input-pass');
+
+inputs.forEach(input => {
+  input.addEventListener('input', () => {
+
+    emailInput.style.border = '1px solid red' ? 'none' : 'none';
+    passInput.style.border = '1px solid red' ? 'none' : 'none';
+
+    if (emailInput.value != "" && passInput.value != "") {
+      loginBtn.disabled = false;
+    }
+    else {  
+      loginBtn.disabled = true;
+    }
+  })
+})
+
+let eye = document.getElementById('eye');
+
+eye.addEventListener('click', () => {
+  if (eye.innerText === 'visibility_off') {
+    eye.innerText = 'visibility';
+    passInput.type = 'text';
+  }
+
+  else {
+    eye.innerText = 'visibility_off';
+    passInput.type = 'password';
+  }
+})
